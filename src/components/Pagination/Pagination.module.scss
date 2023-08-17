@@ -1,0 +1,29 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    li {
+      display: inline-block;
+      // margin-left: auto;
+      // margin-right: auto;
+    }
+  
+    a {
+      text-align: center;
+      width: 40px;
+      line-height: 38px;
+      height: 40px;
+      border: 1px solid #fe5f1e;
+      border-radius: 30px;
+      margin-right: 5px;
+      cursor: pointer;
+      display: inline-block;
+      color: #fe5f1e;
+  
+      &:hover {
+        background-color: #fe5f1e;
+        color: #fff
+      }
+    }
+  }
