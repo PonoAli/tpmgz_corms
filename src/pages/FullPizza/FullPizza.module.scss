@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+
+  .block_order {
+    display: block;
+    margin: 0 auto;
+    width: 280px;
+  }
+
+  .block {
+    width: 50%;
+    padding-left: 30px;
+  }
+  .title {
+    padding-bottom: 30px;
+  }
+
+  .text {
+    padding-top: 10px;
+  }
+
+}
