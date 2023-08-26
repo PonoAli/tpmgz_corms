@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState} from 'react'
+import { useEffect, useRef, useState} from 'react'
 import axios from 'axios';
 import qs from 'qs'
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,25 +10,26 @@ import { PizzaBlock } from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from '../components/Pagination/Pagination';
 import { setCategoryId, setCurrentPage, setFilters } from '../redux/slice/filterSlice';
+import { RootState } from '../redux/store';
 
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(true); //
   const isMounted = useRef(false)
 
-  const {categoryId, sort, currentPage, searchValue} = useSelector((state) => state.filter);
+  const {categoryId, sort, currentPage, searchValue} = useSelector((state: RootState) => state.filter);
 
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id))
   }
 
-  const onChangePage = number => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   }
 
   const fetchPizzas = () => {
@@ -83,9 +84,10 @@ export const Home = () => {
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]) //
 
-  const pizzas = items.map((obj) => 
-    <Link to={`/pizza/${obj.id}`}>
-      <PizzaBlock key={obj.id} {...obj} />
+  const pizzas = items.map(
+    (obj: any) => 
+    <Link key={obj.id} to={`/pizza/${obj.id}`}>
+      <PizzaBlock {...obj} />
     </Link>
   )
 

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import styles from './FullPizza.module.scss'
 
-const FullPizza = () => {
-  const [pizza, setPizza] = useState();
+
+const FullPizza: React.FC = () => {
+  const [pizza, setPizza] = useState<{
+    imageUrl: string;
+    title: string;
+    price: number;
+  }>();
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -24,12 +28,12 @@ const FullPizza = () => {
 
   // если пицца не загрузилась
   if (!pizza) {
-    return 'Загрузка ...';
+    return <>Загрузка ...</>;
   }
 
   return (
-    <div className={styles.root}>
-      <div className={styles.block_order}>
+    <div >
+      <div>
         <div className="pizza-block">
           <img className="pizza-block__image" src={pizza.imageUrl} alt="" />
           <div className="pizza-block__selector">
@@ -63,9 +67,9 @@ const FullPizza = () => {
           </div>
         </div>
       </div>
-      <div className={styles.block}>
-        <h2 className={styles.title}>{pizza.title}</h2>
-        <p className={styles.text}>Описание</p>
+      <div >
+        <h2 >{pizza.title}</h2>
+        <p >Описание</p>
       </div>
     </div>
   )
