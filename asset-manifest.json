@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tpmgz_corms/static/css/main.1de4dcde.css",
+    "main.js": "/tpmgz_corms/static/js/main.926127a4.js",
+    "index.html": "/tpmgz_corms/index.html",
+    "main.1de4dcde.css.map": "/tpmgz_corms/static/css/main.1de4dcde.css.map",
+    "main.926127a4.js.map": "/tpmgz_corms/static/js/main.926127a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1de4dcde.css",
+    "static/js/main.926127a4.js"
+  ]
+}
