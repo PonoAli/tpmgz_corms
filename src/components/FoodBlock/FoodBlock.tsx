@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CartItem, addItem } from '../../redux/slice/cartSlice';
 import { RootState } from '../../redux/store';
 
-type PizzaBlockProps = {
+type FoodBlockProps = {
   id: string, 
   title: string, 
   price: number, 
@@ -16,9 +16,9 @@ type PizzaBlockProps = {
 
 // const typeNames = ['тонкое', 'традиционное',];
 
-export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUrl, sizes, types}) => {
+export const FoodBlock: React.FC<FoodBlockProps> = ({id, title, price, imageUrl, sizes, types}) => {
   const dispatch = useDispatch();
-  const cartItem = useSelector((state:RootState) => state.cart.items.find((obj: any) => obj.id === id))
+  const cartItem = useSelector((state:RootState) => state.cart.items.find((obj) => obj.id === id))
 
   // выбор параметров пиццы
   const [activeType, setActiveType] = useState <number | undefined>();
@@ -40,16 +40,16 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUr
   }
 
   return (
-    <div className="pizza-block">
+    <div className="food-block">
       <img
-        className="pizza-block__image"
+        className="food-block__image"
         src={imageUrl}
-        alt="Pizza"
+        alt="Food"
       />
-      <h4 className="pizza-block__title">
+      <h4 className="food-block__title">
         {title}
       </h4>
-      <div className="pizza-block__selector">
+      <div className="food-block__selector">
         {/* толщина теста */}
         <ul>
           {types.map((type, index) => (
@@ -66,8 +66,8 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUr
           ))}
         </ul>
       </div>
-      <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+      <div className="food-block__bottom">
+        <div className="food-block__price">от {price} ₽</div>
         <button onClick={onClickAdd} className="button button--outline button--add">
           <svg
             width="12"

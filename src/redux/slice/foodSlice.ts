@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
-type Pizza = {
+type Food = {
   id: string, 
   title: string, 
   price: number, 
@@ -10,16 +10,16 @@ type Pizza = {
   rating: number,
 }
 
-interface PizzaSliceState {
-  items: Pizza[]
+interface FoodSliceState {
+  items: Food[]
 }
 
-const initialState: PizzaSliceState = {
+const initialState: FoodSliceState = {
   items: [],
 }
 
-const pizzaSlice = createSlice({
-  name: 'pizza',
+const foodSlice = createSlice({
+  name: 'food',
   initialState,
   reducers: {
     setItems(state, action) {
@@ -28,6 +28,6 @@ const pizzaSlice = createSlice({
   }
 });
 
-export const { setItems } = pizzaSlice.actions;
+export const { setItems } = foodSlice.actions;
 
-export default pizzaSlice.reducer;
+export default foodSlice.reducer;

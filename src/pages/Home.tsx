@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Categories } from "../components/Categories";
 import { Sort, list } from "../components/Sort";
-import { PizzaBlock } from "../components/PizzaBlock/PizzaBlock";
-import Skeleton from "../components/PizzaBlock/Skeleton";
+import { FoodBlock } from "../components/FoodBlock/FoodBlock";
+import Skeleton from "../components/FoodBlock/Skeleton";
 import { setCategoryId, setFilters } from '../redux/slice/filterSlice';
 import { RootState } from '../redux/store';
 
@@ -24,7 +24,7 @@ export const Home: React.FC = () => {
     dispatch(setCategoryId(id))
   }
 
-  const fetchPizzas = async () => {
+  const fetchFoods = async () => {
     setIsLoading(true);
 
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
@@ -61,13 +61,13 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     if (!isSearch.current) {
-    fetchPizzas(); //
+    fetchFoods(); //
     }
     isSearch.current = false; //
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]) //
 
-  const pizzas = items.map((obj:any) => <PizzaBlock 
+  const foods = items.map((obj:any) => <FoodBlock 
     key={obj.id} {...obj}
     />)
 
@@ -81,8 +81,8 @@ export const Home: React.FC = () => {
         <Sort />
       </div>
         <h2 className="content__title">Все пиццы</h2>
-      <div className="content_pizza-block">
-      {isLoading ? skeletons : pizzas} 
+      <div className="content_food-block">
+      {isLoading ? skeletons : foods} 
       </div>
     </>
   )

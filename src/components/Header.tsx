@@ -14,7 +14,7 @@ function Header () {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="100" src="./img/logo1.jpg" alt="Pizza logo" />
+            <img width="100" src="./img/logo1.jpg" alt="Food logo" />
             <div>
               <h1>Food cort</h1>
               <p>самая вкусная еда во вселенной</p>
