@@ -9,19 +9,19 @@ type PizzaBlockProps = {
   price: number, 
   imageUrl: string, 
   sizes: number[], 
-  types: number[],
+  types: string[],
   rating: number,
 }
 
 
-const typeNames = ['тонкое', 'традиционное'];
+// const typeNames = ['тонкое', 'традиционное',];
 
 export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUrl, sizes, types}) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((state:RootState) => state.cart.items.find((obj: any) => obj.id === id))
 
   // выбор параметров пиццы
-  const [activeType, setActiveType] = useState(0);
+  const [activeType, setActiveType] = useState <number | undefined>();
   const [activeSize, setActiveSize] = useState <number | undefined> ();
 
   const adddedCount = cartItem ? cartItem.count : 0;
@@ -32,7 +32,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUr
       title,
       price,
       imageUrl,
-      type: typeNames[activeType],
+      type: types[Number(activeType)],
       size: sizes[Number(activeSize)],
       count: 0,
     };
@@ -52,9 +52,9 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({id, title, price, imageUr
       <div className="pizza-block__selector">
         {/* толщина теста */}
         <ul>
-          {types.map((typeId) => (
-            <li key={typeId} onClick={() => setActiveType(typeId)} className={activeType === typeId ? "active" : ''}>
-              {typeNames[typeId]}
+          {types.map((type, index) => (
+            <li key={type} onClick={() => setActiveType(index)} className={activeType === index ? "active" : ''}>
+              {type}
             </li>
           ))}
         </ul>

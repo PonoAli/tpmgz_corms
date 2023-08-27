@@ -9,11 +9,10 @@ export const Categories: React.FC<CategoriesProps> = ({value, onChangeCategory})
 
   const categories = [
     'Все',
-    'Мясные',
-    'Вегетерианская',
-    'Гриль',
-    'Острые',
-    'Закрытые',
+    'Пиццы',
+    'Бургеры',
+    'Блюда на углях',
+    'Напитки',
   ]
 
   return (

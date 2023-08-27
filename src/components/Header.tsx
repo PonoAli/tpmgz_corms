@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import {useSelector } from "react-redux";
-import Search from "./Search/Search";
+// import Search from "./Search/Search";
 import { RootState } from "../redux/store";
 
 function Header () {
@@ -12,16 +12,16 @@ function Header () {
   return (
     <div className="header">
       <div className="container">
-        <Link to='/'>
+        <Link to="/">
           <div className="header__logo">
-            <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+            <img width="100" src="./img/logo1.jpg" alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>Food cort</h1>
+              <p>самая вкусная еда во вселенной</p>
             </div>
           </div>
         </Link>
-        <Search />
+        {/* <Search /> */}
         {location.pathname !== '/cart' && 
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">

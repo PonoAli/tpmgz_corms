@@ -9,12 +9,12 @@ type SortItem = {
 }
 
 export const list: SortItem[] = [
-  {name:'популярности (Desc)', sortProperty:'rating'},
-  {name:'популярности (Asc)', sortProperty:'-rating'},
-  {name:'цене (Desc)', sortProperty:'price'},
-  {name:'цене (Asc)', sortProperty:'-price'},
-  {name:'алфавиту(Desc)', sortProperty:'title'},
-  {name:'алфавиту(Asc)', sortProperty:'-title'},
+  {name:'популярности (-)', sortProperty:'rating'},
+  {name:'популярности (+)', sortProperty:'-rating'},
+  {name:'цене (-)', sortProperty:'price'},
+  {name:'цене (+)', sortProperty:'-price'},
+  {name:'алфавиту (-)', sortProperty:'title'},
+  {name:'алфавиту (+)', sortProperty:'-title'},
 ];
 
 export const Sort = () => {
