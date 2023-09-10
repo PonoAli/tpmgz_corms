@@ -10,11 +10,6 @@
 
 Дизайн сайта был сверстан по макету figma. При использовании SCSS.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `функционал`
 
 На главной странице есть карточки товара. В самих карточках можно выбрать нужные характеристики и добавить продукт в корзину. 
